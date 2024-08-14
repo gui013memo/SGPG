@@ -34,7 +34,8 @@ namespace SGPG
 
         private void OpcoesButton_Click(object sender, EventArgs e)
         {
-
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
         }
 
         private void SobreButton_Click(object sender, EventArgs e)
