@@ -30,30 +30,32 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             sideBarPanel = new Panel();
-            licencaDemoLabel = new Label();
+            pictureBox2 = new PictureBox();
             sobreButton = new Button();
             opcoesButton = new Button();
             buscarButton = new Button();
             pesagemButton = new Button();
             telaInicialButton = new Button();
             companyLogoPanel = new Panel();
-            pictureBox1 = new PictureBox();
+            suaLogoAquiLabel = new Label();
+            customerLogoPictureBox = new PictureBox();
+            diasRestantesLabel = new Label();
             topBarPanel = new Panel();
             sistemaGestPesagemLabel = new Label();
             MinimizeLabel = new Label();
             closeLabel = new Label();
-            diasRestantesLabel = new Label();
+            formLoaderPanel = new Panel();
             sideBarPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             companyLogoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customerLogoPictureBox).BeginInit();
             topBarPanel.SuspendLayout();
             SuspendLayout();
             // 
             // sideBarPanel
             // 
-            sideBarPanel.BackColor = Color.FromArgb(246, 246, 246);
-            sideBarPanel.Controls.Add(diasRestantesLabel);
-            sideBarPanel.Controls.Add(licencaDemoLabel);
+            sideBarPanel.BackColor = Color.White;
+            sideBarPanel.Controls.Add(pictureBox2);
             sideBarPanel.Controls.Add(sobreButton);
             sideBarPanel.Controls.Add(opcoesButton);
             sideBarPanel.Controls.Add(buscarButton);
@@ -67,18 +69,15 @@
             sideBarPanel.Size = new Size(208, 1032);
             sideBarPanel.TabIndex = 0;
             // 
-            // licencaDemoLabel
+            // pictureBox2
             // 
-            licencaDemoLabel.AutoSize = true;
-            licencaDemoLabel.FlatStyle = FlatStyle.Flat;
-            licencaDemoLabel.Font = new Font("Nirmala UI Semilight", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            licencaDemoLabel.ForeColor = Color.Black;
-            licencaDemoLabel.Location = new Point(53, 903);
-            licencaDemoLabel.Name = "licencaDemoLabel";
-            licencaDemoLabel.Size = new Size(103, 74);
-            licencaDemoLabel.TabIndex = 3;
-            licencaDemoLabel.Text = "Licença\r\nDemo";
-            licencaDemoLabel.TextAlign = ContentAlignment.MiddleCenter;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(34, 909);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(138, 111);
+            pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
             // 
             // sobreButton
             // 
@@ -88,7 +87,7 @@
             sobreButton.Dock = DockStyle.Top;
             sobreButton.FlatAppearance.BorderSize = 0;
             sobreButton.FlatStyle = FlatStyle.Flat;
-            sobreButton.Font = new Font("Nirmala UI Semilight", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            sobreButton.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
             sobreButton.Location = new Point(0, 742);
             sobreButton.Name = "sobreButton";
             sobreButton.Size = new Size(208, 148);
@@ -106,7 +105,7 @@
             opcoesButton.Dock = DockStyle.Top;
             opcoesButton.FlatAppearance.BorderSize = 0;
             opcoesButton.FlatStyle = FlatStyle.Flat;
-            opcoesButton.Font = new Font("Nirmala UI Semilight", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            opcoesButton.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
             opcoesButton.Location = new Point(0, 594);
             opcoesButton.Name = "opcoesButton";
             opcoesButton.Size = new Size(208, 148);
@@ -124,7 +123,7 @@
             buscarButton.Dock = DockStyle.Top;
             buscarButton.FlatAppearance.BorderSize = 0;
             buscarButton.FlatStyle = FlatStyle.Flat;
-            buscarButton.Font = new Font("Nirmala UI Semilight", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            buscarButton.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
             buscarButton.Location = new Point(0, 446);
             buscarButton.Name = "buscarButton";
             buscarButton.Size = new Size(208, 148);
@@ -142,7 +141,7 @@
             pesagemButton.Dock = DockStyle.Top;
             pesagemButton.FlatAppearance.BorderSize = 0;
             pesagemButton.FlatStyle = FlatStyle.Flat;
-            pesagemButton.Font = new Font("Nirmala UI Semilight", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            pesagemButton.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
             pesagemButton.Location = new Point(0, 298);
             pesagemButton.Name = "pesagemButton";
             pesagemButton.Size = new Size(208, 148);
@@ -160,7 +159,7 @@
             telaInicialButton.Dock = DockStyle.Top;
             telaInicialButton.FlatAppearance.BorderSize = 0;
             telaInicialButton.FlatStyle = FlatStyle.Flat;
-            telaInicialButton.Font = new Font("Nirmala UI Semilight", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            telaInicialButton.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
             telaInicialButton.Location = new Point(0, 150);
             telaInicialButton.Name = "telaInicialButton";
             telaInicialButton.Size = new Size(208, 148);
@@ -173,7 +172,8 @@
             // companyLogoPanel
             // 
             companyLogoPanel.BackColor = Color.White;
-            companyLogoPanel.Controls.Add(pictureBox1);
+            companyLogoPanel.Controls.Add(suaLogoAquiLabel);
+            companyLogoPanel.Controls.Add(customerLogoPictureBox);
             companyLogoPanel.Dock = DockStyle.Top;
             companyLogoPanel.ImeMode = ImeMode.NoControl;
             companyLogoPanel.Location = new Point(0, 0);
@@ -181,15 +181,43 @@
             companyLogoPanel.Size = new Size(208, 150);
             companyLogoPanel.TabIndex = 1;
             // 
-            // pictureBox1
+            // suaLogoAquiLabel
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(4, 7);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(199, 135);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            suaLogoAquiLabel.AutoSize = true;
+            suaLogoAquiLabel.BackColor = Color.Orange;
+            suaLogoAquiLabel.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            suaLogoAquiLabel.Location = new Point(12, 29);
+            suaLogoAquiLabel.Name = "suaLogoAquiLabel";
+            suaLogoAquiLabel.Size = new Size(178, 90);
+            suaLogoAquiLabel.TabIndex = 0;
+            suaLogoAquiLabel.Text = "SUA LOGO\r\nAQUI";
+            suaLogoAquiLabel.TextAlign = ContentAlignment.MiddleCenter;
+            suaLogoAquiLabel.Visible = false;
+            suaLogoAquiLabel.Click += suaLogoAquiLabel_Click;
+            // 
+            // customerLogoPictureBox
+            // 
+            customerLogoPictureBox.Image = (Image)resources.GetObject("customerLogoPictureBox.Image");
+            customerLogoPictureBox.Location = new Point(4, 7);
+            customerLogoPictureBox.Name = "customerLogoPictureBox";
+            customerLogoPictureBox.Size = new Size(199, 135);
+            customerLogoPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            customerLogoPictureBox.TabIndex = 0;
+            customerLogoPictureBox.TabStop = false;
+            customerLogoPictureBox.Click += customerLogoPictureBox_Click;
+            // 
+            // diasRestantesLabel
+            // 
+            diasRestantesLabel.AutoSize = true;
+            diasRestantesLabel.FlatStyle = FlatStyle.Flat;
+            diasRestantesLabel.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            diasRestantesLabel.ForeColor = Color.Black;
+            diasRestantesLabel.Location = new Point(208, 1009);
+            diasRestantesLabel.Name = "diasRestantesLabel";
+            diasRestantesLabel.Size = new Size(263, 21);
+            diasRestantesLabel.TabIndex = 7;
+            diasRestantesLabel.Text = "Licenca demo - 29 dias restantes";
+            diasRestantesLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // topBarPanel
             // 
@@ -206,11 +234,11 @@
             // sistemaGestPesagemLabel
             // 
             sistemaGestPesagemLabel.AutoSize = true;
-            sistemaGestPesagemLabel.Font = new Font("Bahnschrift Light", 48F, FontStyle.Regular, GraphicsUnit.Point);
+            sistemaGestPesagemLabel.Font = new Font("Century Gothic", 48F, FontStyle.Regular, GraphicsUnit.Point);
             sistemaGestPesagemLabel.ForeColor = Color.FromArgb(230, 230, 230);
             sistemaGestPesagemLabel.Location = new Point(385, 29);
             sistemaGestPesagemLabel.Name = "sistemaGestPesagemLabel";
-            sistemaGestPesagemLabel.Size = new Size(948, 77);
+            sistemaGestPesagemLabel.Size = new Size(1057, 78);
             sistemaGestPesagemLabel.TabIndex = 1;
             sistemaGestPesagemLabel.Text = "Sistema de Gestão de Pesagem ";
             sistemaGestPesagemLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -233,7 +261,7 @@
             closeLabel.AutoSize = true;
             closeLabel.Font = new Font("Segoe UI", 28F, FontStyle.Bold, GraphicsUnit.Point);
             closeLabel.ForeColor = SystemColors.ButtonFace;
-            closeLabel.Location = new Point(1653, 9);
+            closeLabel.Location = new Point(1660, 9);
             closeLabel.Name = "closeLabel";
             closeLabel.Size = new Size(47, 51);
             closeLabel.TabIndex = 1;
@@ -241,18 +269,13 @@
             closeLabel.TextAlign = ContentAlignment.MiddleCenter;
             closeLabel.Click += CloseLabel_Click;
             // 
-            // diasRestantesLabel
+            // formLoaderPanel
             // 
-            diasRestantesLabel.AutoSize = true;
-            diasRestantesLabel.FlatStyle = FlatStyle.Flat;
-            diasRestantesLabel.Font = new Font("Nirmala UI Semilight", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            diasRestantesLabel.ForeColor = Color.Black;
-            diasRestantesLabel.Location = new Point(26, 986);
-            diasRestantesLabel.Name = "diasRestantesLabel";
-            diasRestantesLabel.Size = new Size(161, 25);
-            diasRestantesLabel.TabIndex = 7;
-            diasRestantesLabel.Text = "(29 dias restantes)";
-            diasRestantesLabel.TextAlign = ContentAlignment.MiddleCenter;
+            formLoaderPanel.BackColor = Color.FromArgb(232, 232, 232);
+            formLoaderPanel.Location = new Point(208, 150);
+            formLoaderPanel.Name = "formLoaderPanel";
+            formLoaderPanel.Size = new Size(1712, 858);
+            formLoaderPanel.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -260,19 +283,23 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1920, 1032);
+            Controls.Add(diasRestantesLabel);
+            Controls.Add(formLoaderPanel);
             Controls.Add(topBarPanel);
             Controls.Add(sideBarPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "SGPG-MainForm";
+            Text = "SGPG";
             sideBarPanel.ResumeLayout(false);
-            sideBarPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             companyLogoPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            companyLogoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)customerLogoPictureBox).EndInit();
             topBarPanel.ResumeLayout(false);
             topBarPanel.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -284,12 +311,14 @@
         private Label MinimizeLabel;
         private Label sistemaGestPesagemLabel;
         private Button telaInicialButton;
-        private PictureBox pictureBox1;
+        private PictureBox customerLogoPictureBox;
         private Button pesagemButton;
         private Button sobreButton;
         private Button opcoesButton;
         private Button buscarButton;
-        private Label licencaDemoLabel;
         private Label diasRestantesLabel;
+        private Panel formLoaderPanel;
+        private PictureBox pictureBox2;
+        private Label suaLogoAquiLabel;
     }
 }

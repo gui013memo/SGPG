@@ -41,5 +41,17 @@ namespace SGPG
         {
 
         }
+
+        private void customerLogoPictureBox_Click(object sender, EventArgs e)
+        {
+            customerLogoPictureBox.Visible = false;
+            suaLogoAquiLabel.Visible = true;
+        }
+
+        private void suaLogoAquiLabel_Click(object sender, EventArgs e)
+        {
+            customerLogoPictureBox.Visible = true;
+            suaLogoAquiLabel.Visible = false;
+        }
     }
 }
